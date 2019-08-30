@@ -5,7 +5,12 @@
 In this scenario we will combine the WKND and WKND-Events project. 
 This scenario comprises of 3 parts:
 
-<script src="https://gist.github.com/varunmitra/b46bc46cc55f3e176ca86ad0fdc90a90.js"></script>
+
+| Serial  | Scenario |	Complexity	|
+| ------------- | ------------- | ------------- |	
+| 1  | Clone and Format WKND Project  |	Medium	|
+| 2  | Clone and Format WKND-Events Project  |	Low	|
+| 3  | Merge WKND and WKND-Events Project    |  High|
 
 
 
@@ -18,4 +23,30 @@ This scenario comprises of 3 parts:
 
 #### Scenario 2
 #### 2a. Clone and Format WKND Project
-1. 
+1. Clone [WKND Sites Project](https://github.com/adobe/aem-guides-wknd/tree/solution/chapter-8)
+    > ` git clone --branch solution/chapter-8 https://github.com/adobe/aem-guides-wknd.git `
+
+2. Set up an empty Git Repository 
+    > ` This GIT repository will be referred to as Origin `
+3. Open Command Prompt or Terminal Window.
+4. Navigate using command line to the local directory that contains cloned WKND Project
+5. Execute the following commands, to delete the `.git` folder
+    * Windows:
+      > rmdir .git /S
+    * Mac
+      > rm -R .git
+6. Initialize the local repository and point it to remote `Origin` GitHub
+    > ` git init `
+
+    > ` git add . ` 
+    
+    > ` git commit ` 
+    
+    > ` git remote add origin <http URL for the origin git> ` <br/><br/>
+    > e.g.  ` git remote add origin https://github.com/varunmitra/WKND.git `
+    
+    > ` git push -f origin master `
+
+    
+    
+    
