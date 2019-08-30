@@ -22,7 +22,7 @@ This scenario comprises of 3 parts:
 5. Adobe Public Maven Repository in maven settings 
 
 #### Scenario 2
-#### 2a. Clone and Format WKND Project
+#### 2a. Clone WKND Project
 1. Clone [WKND Sites Project](https://github.com/adobe/aem-guides-wknd/tree/solution/chapter-8)
     > ` git clone --branch solution/chapter-8 https://github.com/adobe/aem-guides-wknd.git `
 
@@ -47,6 +47,24 @@ This scenario comprises of 3 parts:
     
     > ` git push -f origin master `
 
-    
+---
+
+#### 2b: Format WKND Project
+
+1. Navigate using command line to the local directory that contains cloned WKND Project
+2. Create a new directory 
+    > ` mkdir wknd `
+3. Move projects and files inside the newly created directory
+    > ` git mv pom.xml core it.launcher it.tests ui.content ui.apps wknd `
+4. Resulting folder structure will look like:
+
+    > ![wknd_project_1](./resources/wknd_project_1.png)
+
+5. Create a new `pom.xml` file. 
+6. Update the `pom.xml` file with the following code:
+<script src="https://git.corp.adobe.com/gist/vmitra/24c136f38b8d9e6597b14dca917a22a2.js"></script>
+
+
+
     
     
