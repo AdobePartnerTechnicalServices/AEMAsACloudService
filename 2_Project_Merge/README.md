@@ -124,6 +124,6 @@ This scenario comprises of 3 parts:
     > ` git push -u origin master `
 11. Resulting GitHub will look something like:
 
-    > ![wknd_project_3](./resources/wknd_project_3.PNG) ![wknd_project_4](./resources/wknd_project_4.PNG)
+    > ![wknd_events_project_3](./resources/wknd_events_project_3.PNG) ![wknd_events_project_4](./resources/wknd_events_project_4.PNG)
     
     
