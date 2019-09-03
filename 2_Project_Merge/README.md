@@ -127,3 +127,49 @@ This scenario comprises of 3 parts:
     > ![wknd_events_project_3](./resources/wknd_events_project_3.PNG) ![wknd_events_project_4](./resources/wknd_events_project_4.PNG)
     
     
+---
+
+#### 2e: Merge WKND and WKND Events
+
+1. Navigate using command line to the WKND project
+2. Run the following commands:
+
+    > ` git checkout master `
+
+    > ` git remote add WKND-Events <path to cloned WKND-Events Git repository> ` <br/> e.g.  ` git remote add WKND-Events https://github.com/varunmitra/WKND-Events.git `
+
+
+    > ` git fetch WKND-Events `
+
+
+    > ` git checkout -b WKND-Events WKND-Events/master `
+
+
+    > Verify the directory strcture: <br/> For Mac : ` ls ` <br/>
+    For Windows: ` dir `
+
+    > ` git checkout master `
+
+
+    > ` git merge WKND-Events --allow-unrelated-histories `
+
+
+    > Fix the Merge errors. pom.xml should look something like https://git.corp.adobe.com/gist/vmitra/7dc114b64c8c240677490727e89987b2 
+
+
+     > Verify the directory strcture: <br/> For Mac : ` ls ` <br/>
+    For Windows: ` dir `
+
+
+    > ` git commit -am "updating parent pom" `
+    
+
+    > ` mvn verify `
+
+3. Add cloud manager GitHub
+
+    > ` git remote add cm_repo <path to cloud manager git repository> ` <br/> e.g. ` git remote add origin https://github.com/varunmitra/wknd_wknd_events.git `
+
+4. Push to Cloud Manager GitHub
+
+    > ` git push -u cm_repo master `
