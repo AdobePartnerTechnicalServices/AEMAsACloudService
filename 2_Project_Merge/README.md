@@ -61,7 +61,7 @@ This scenario comprises of 3 parts:
     > ![wknd_project_1](./resources/wknd_project_1.PNG)
 
 5. Create a new `pom.xml` file. 
-6. Update the `pom.xml` file with the following [code](https://git.corp.adobe.com/gist/vmitra/24c136f38b8d9e6597b14dca917a22a2)
+6. Update the `pom.xml` file with the following <script src="https://git.corp.adobe.com/gist/vmitra/24c136f38b8d9e6597b14dca917a22a2.js"></script>
 7. Add `pom.xml` to the current project
     > ` git add pom.xml`
 8. Test project sanity by running `mvn verify`
