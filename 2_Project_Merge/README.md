@@ -131,6 +131,24 @@ This scenario comprises of 3 parts:
 
 #### 2e: Merge WKND and WKND Events
 
+###### Description
+
+In ths section we will merge the WKND and wKND-Events Project. In order to achieve this we will follow the given steps:
+
+1. Add WKND-Events GitHub as a remote repository for WKND. This will allow us to fetch the content of WKND-Events Project and add it as a branch of WKND.
+2.  Fetch WKND-Events Project.
+3. Switch the branch pointer to WKND-Events/Master branch.
+4. Verify the project contents.
+5. Switch the branch pointer back to the WKND Master branch.
+6. Perform a branch merge using --allow-unrelated-histories flag.
+7. Fix the Merge errors. Most importantly, modify the pom.xml to point to both wknd and wknd-events projects.
+8. Commit the changes.
+9. Verify the project using `mvn verify` or `mvn clean install`
+10. Push the consolidated project to Cloud Manager GitHub.
+
+
+Exact Steps and Git Commands are as below: 
+
 1. Navigate using command line to the WKND project
 2. Run the following commands:
 
@@ -162,7 +180,7 @@ This scenario comprises of 3 parts:
 
 
     > ` git commit -am "updating parent pom" `
-    
+
 
     > ` mvn verify `
 
