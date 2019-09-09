@@ -1,3 +1,5 @@
+# Deploy Your First Project to AEM Cloud
+In this scenario , we will deploy our locally generated project to AEM Cloud.
 
 #### Cloud Manager
 
@@ -7,19 +9,21 @@ Cloud Manager is in charge of all orchestrations and deployments to the instance
 
 ![Cloud Manager ](./assets/cloudmanager.png)
 
-#### Configure Program 
+#### Pre-requisites
+* Provisioned AEM Cloud Program 
+* Access to Cloud Manager Git Repository
+
+#### Create a Project
+1. Create a new project using latest Archetype 
+
 
 ### Step 1. Push your project code to Git Repository
-1. Clone the WKND Project from repository
-```
-git clone ggit@github.com:Adobe-Marketing-Cloud/aem-guides-wknd.git
-```
 
-2. Setup the git origin to Cloud Manager Git Repo
+1. Setup the git origin to Cloud Manager Git Repository URL
 ```
-git remote add origin
+git remote add origin <Cloud Manager Git Repository SSH URL >
 ```
-3. Push the project
+3. Add & Push the project to Git Repository
 
 ```
 git add *
@@ -27,11 +31,9 @@ git add .gitignore
 git commit -m "copy of showcase project"
 git push --set-upstream origin master
 ```
-* [TBD] How Permission will be managed ??
 
-
-### Step 2. Create A Non-Production Pipeline
-1. Go to Adobe Experience Manager **Programs** [URL]
+### Step 2. Create a Non-Production Pipeline
+1. Go to AEM Cloud Service **Programs** [URL]
 2. Go to **Non-Production Pipeline** Card > Click Add 
 3. Add Pipeline Name
 4. Add **Pipeline Type** as **Code Quality Pipeline**
@@ -43,5 +45,9 @@ git push --set-upstream origin master
 ### Step 3. Deploy the project
 1. Hover over the created pipeline and click **Build**
 2. Download and Inspect Logs
-   
+
+
+### Step 4. Verify Successful Deployment
+1. Access Non-Prod Author Environment
+2. Go to Sites > Project    
    
