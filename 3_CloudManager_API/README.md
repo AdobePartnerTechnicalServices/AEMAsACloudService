@@ -3,44 +3,30 @@
 
 ---
 
-# Get Up, Running, and Integrated with Cloud Manager for Experience Manager
+# Integrate Cloud Manager with an external system using Adobe I/O.
 
 ## Table of Contents
 
-* [Lab Overview](#lab-overview)
-* [Lesson 1 - Pipeline Setup](#lesson-1---pipeline-setup)
-* [Lesson 2 - Pipeline Execution](#lesson-2---pipeline-execution)
-* [Lesson 3 - Fixing Issues](#lesson-3---fixing-issues)
-* [Lesson 4 - Create a Webhook](#lesson-4---create-a-webhook)
-* [Lesson 5 - Webhook Setup](#lesson-5---webhook-setup)
-* [Lesson 6 - Testing it Out](#lesson-6---testing-it-out)
+* [Lesson 1 - Create a Webhook](#lesson-4---create-a-webhook)
+* [Lesson 2 - Webhook Setup](#lesson-5---webhook-setup)
+* [Lesson 3 - Testing it Out](#lesson-6---testing-it-out)
 * [Next Steps](#next-steps)
 * [Additional Resources](#additional-resources)
 
-## Scenario Overview
 
-Welcome to the scenario "Get Up, Running, and Integrated with Cloud Manager for Experience Manager"! In this scenario, we will look at how Cloud Manager helps our customers and partners quickly deploy their custom applications to Adobe-managed Experience Manager environments while ensuring that custom code adheres to both Adobe and industry best practices. We will also explore how external systems (in this case Microsoft Teams) can be integrated with Cloud Manager using our API.
-
-Cloud Manager, first introduced at Summit 2018, is a self-service cloud application which enables our Managed Services customers to deploy, update, monitor, and manage their Experience Manager environments. This lab will be focused on the Continuous Integration / Continuous Delivery (CI/CD) aspect of Cloud Manager. There are other sessions at Summit which address some of the other capabilities of Cloud Manager as well as full reference documentation linked to from the [Additional Resources](#additional-resources) section below.
-
-### Key Takeaways
-
-* Learn how to set up a CI/CD pipeline in Cloud Manager.
-* See how Cloud Manager identifies coding errors.
-* Integrate Cloud Manager with an external system using Adobe I/O.
 
 ### Scenario Roadmap
 
 In this scenario, we'll be using a number of different tools, so before we get started, let's do a quick overview of what each of these tools does and how we will be using them.
 
 * Cloud Manager
-    *  In this scenatio, we'll be setting up a CI/CD pipeline in Cloud Manager and executing it a few times. Cloud Manager will be used in Lessons 1, 2, 3, and 6.
+    *  In this scenatio, we'll be setting up a CI/CD pipeline in Cloud Manager and executing it a few times. 
 *  Git
-   * Git is a version control system. Every Cloud Manager customer is provided with a git repository. This scenario won't be teaching you the ins and outs of using git; just enough to get by. Git will be used in Lesson 3.
+   * Git is a version control system. Every Cloud Manager customer is provided with a git repository. This scenario won't be teaching you the ins and outs of using git; just enough to get by. 
 * Adobe I/O
-    *  Adobe I/O is Adobe's centralized API Gateway through which customers and partners can integrate with the entire Adobe product portfolio. Adobe I/O will be used directly in Lesson 5.
+    *  Adobe I/O is Adobe's centralized API Gateway through which customers and partners can integrate with the entire Adobe product portfolio. 
 * Microsoft Teams
-    * Microsoft Teams is a collaboration platform which includes chat (both group and one-on-one), voice, video, and other types of communication. In this lab, we are using Microsoft Teams as a notification channel in Lessons 5 and 6.
+    * Microsoft Teams is a collaboration platform which includes chat (both group and one-on-one), voice, video, and other types of communication.
 
 ![Lab Touchpoints](images/overview/roadmap.png)
 
@@ -54,197 +40,7 @@ As a LiveTrial attendee, you have been provisioned with all of the necessary acc
 * The System Administrator role for your Organization in the Adobe Admin Console.
 * A git client (either the command line client or as part of an Integrated Development Environment).
 
-## Lesson 1 - Pipeline Setup
-
-### Objectives
-
-1. Log into Cloud Manager
-2. Create a Code Quality Pipeline
-
-### Lesson Context
-
-This lesson will start by logging into Cloud Manager through the Experience Cloud. Once logged in, you will create a simple CI/CD pipeline which builds an application project and evaluates the code quality. Pipelines like this can be used throughout the development process to get early and fast feedback.
-
-![Lab Touchpoints - Lesson 1](images/lesson1/roadmap.png)
-
-#### Exercise 1.1
-
-Our lab starts with logging into the Cloud Manager web interface. To start, open Google Chrome. It should automatically present you with the Experience Cloud login page. If not, navigate to https://aem65lt.experiencecloud.adobe.com.
-
-![Experience Cloud Login](images/lesson1/exc-login-page.png)
-
-On this page, click the _Sign In with an Adobe ID_ button.
-
-Each attendee has a unique login assigned to them. You should see this on your workstation. Enter that email address and password on the login form and click the _Sign in with an Enterprise ID_ button.
-
-![Experience Cloud Username Password Form](images/lesson1/exc-username-password.png)
-
-To navigate to Cloud Manager, click the Solution Switcher in the header navigation (the icon is three rows of three squares) and select Experience Manager.
-
-![Experience Cloud Solution Switcher](images/lesson1/exc-home-solution-switcher.png)
-
-On this screen, click the _AEM Managed Services_ card.
-
-![Experience Cloud Experience Manager Page](images/lesson1/exc-aem-page.png)
-
-We refer to this screen as the _Program Switcher_. Many of our Managed Services customers have multiple _programs_ under a single enterprise organization. For example, you might have one set of environments for an Enterprise DAM, another set for your public-facing websites, and another set for an employee or partner portal. Cloud Manager groups these into separate programs. For the purpose of this lab, we only have a single program (We.Retail Intranet). To navigate to the Cloud Manager overview page for that program, hover over the card and click on the Cloud Manager icon (it will be the first icon on the left).
-
-![Cloud Manager Programs](images/lesson1/programs-rollver.png)
-
-> If you click on the card itself, you will get an error message stating that the AEM Link cannot be found. Under normal circumstances, clicking on the card will navigate to the production AEM author instance. For the purpose of this lab, there is no production author instance, so this link is non-functional.
-
-#### Exercise 1.2
-
-Cloud Manager supports multiple types of CI/CD pipelines. The _primary_ pipeline builds a customer application project, runs a series of code quality checks, deploys that project to a staging environment, runs security and performance tests, and finally deploys to the production environment. Additional pipelines may be created to deploy to other non-production environments, e.g. a development environment. There is also support for what we refer to as "Code Quality Only" pipelines which only execute the build and code quality checks. These pipelines are useful to verify code quality during a development cycle and are especially relevant for customers who do not have a separate development environment hosted by Adobe.
-
-For the purpose of this lab, we will be using a Code Quality Only pipeline primarily for the purpose of speed -- it does the least and thus takes the least amount of time.
-
-> That said, if you are using this workbook outside of Summit and have the environments available, feel free to use a different pipeline type; it doesn't actually impact the lab content significantly.
-
-To start, click the Add button in the Non-Production pipelines card.
-
-![Non-Production Pipelines Card](images/lesson1/npp-card-rollover.png)
-
-Provide a name for your pipeline which includes your attendee number. For example, if your attendee number is `5`, name it `Pipeline 5`. Make sure that _Code Quality Pipeline_ is the selected Pipeline Type (it should be the only option available).
-
-The git repository for this program has been set up with 100 branches, one for each attendee. This is not really typical -- most programs only have a handful of branches. Select the branch which corresponds to your attendee number.
-
-![Pipeline Name and Branch Selection](images/lesson1/pipeline-config-1.png)
-
-Finally, make sure that the Manual trigger is selected under the Pipeline Options section and that the Important Failure Behavior is set to Fail immediately.
-
-![Pipeline Options](images/lesson1/pipeline-config-2.png)
-
-Finally, click the Save button in the top right corner.
-
-## Lesson 2 - Pipeline Execution
-
-### Objectives
-
-1. Execute the Pipeline
-2. Understand the Results
-
-### Lesson Context
-
-In this lesson, we will execute the pipeline created in the first lesson and observe the results in both summarized and detailed form.
-
-![Lab Touchpoints - Lesson 2](images/lesson2/roadmap.png)
-
-#### Exercise 2.1
-
-Now that we have our pipeline setup, it is time to execute it.
-
-You should be back on the Cloud Manager Overview page. If not, click the Overview link in the top navigation.
-
-In the Non-Production Pipelines box, find the pipeline you created in the first step. Hover over the row in the table and click the _Build_ button. This will take you to the Pipeline Execution page.
-
-![Pipeline Build Button](images/lesson2/pipeline-line-rollover.png)
-
-On the Pipeline Execution page, click the _Build_ button to start the pipeline.
-
-![Pipeline Execution Page](images/lesson2/execution-page-unbuilt-cropped.png)
-
-> This will take a little time, so grab something to drink.
-
-#### Exercise 2.2
-
-Uh oh. The pipeline failed. Let's see why. Looking at the execution details screen, you'll see that the Code Quality step has failed. Click on the Review Summary button to open the summary dialog.
-
-![Failed Execution](images/lesson2/build-failure-rollover.png)
-
-The Code Quality, Security Testing, and Performance Testing steps in Cloud Manager all follow a three-tier structure -- the step produced a variety of metrics and these are classified as either _Critical_, _Important_, or _Informational_. If a Critical metric has not met its threshold, the execution fails immediately. If an Important metric has not met its threshold, the execution is paused (by default, although in this case, we specified the pipeline should fail immediately since it is a Code Quality-only pipeline) until someone overrides or rejects the violation. And Informational metrics are purely Informational.
-
-> The Security Test step is slightly different in that each "metric" is actually a separate Health Check and either passes or fails, but the same three-tier concept applies.
-
-![Code Scanning Results](images/lesson2/quality-results.png)
-
-In this case, we actually have two problems -- the Security Rating is a C and the Reliability Rating is a D. The Reliability Rating is an Important metric, so we could override that, but the Security Rating is Critical so we must fix that in order to proceed. So let's do that. Click the Close button to dismiss the dialog.
-
-Cloud Manager provides a spreadsheet listing the specific coding rule violations which led to the metrics. We'll need that for the next lesson, so click the Download Details button to download it.
-
-The resulting download should open automatically in Microsoft Excel, but if not, go ahead and open it. There will be four rows in the spreadsheet -- a heading row and one row for each of the three violations identified in the project. You may want to adjust the columns for readability.
-
-## Lesson 3 - Fixing Issues
-
-### Objectives
-
-1. Checking out the Project Code
-2. Updating the Project Code
-3. Re-Executing the Pipeline
-
-### Lesson Context
-
-Building on the prior lesson, in this lesson you will download a copy of the codebase built by the Cloud Manager pipeline set up in the first lesson and executed in the second lesson and attempt to resolve the problems identified during the pipeline execution.
-
-![Lab Touchpoints - Lesson 3](images/lesson3/roadmap.png)
-
-#### Exercise 3.1
-
-Now that Cloud Manager has told us where the problems in our code lie, let's go ahead and fix them.  To do this, you will clone the Cloud Manager-provided git repository for this program and make your changes on your branch.
-
-In order to connect to the git repository, you will need a URL, username, and password. These can be found in a file named _git_credentials.txt_ on the Desktop. Open this file in TextEdit.
-
-In this lab, we will be using Microsoft Visual Studio Code as our Integrated Development Environment, but if you are doing this lab on your own, you can use any IDE. To start, open Visual Studio Code. Select _Command Palette_ from the _View_ menu and type _Git: Clone_. Copy and paste the URL from the text file and press _Enter_.
-
-![Git Clone Dialog in Visual Studio Code](images/lesson3/git-clone-in-vscode.png)
-
-When prompted, select your _Documents_ folder and click _Select Repository Location_. Visual Studio Code will automatically create a folder inside the selected folder.
-
-Visual Studio Code will now prompt you for the username and password. As with the URL, copy and paste these values from the text file and press _Enter_.
-
-![Username Dialog in Visual Studio Code](images/lesson3/git-clone-username.png)
-
-Once the clone operation is complete, Visual Studio Code will prompt you to open the cloned repository. Click the _Open Repository_ button.
-
-![Dialog after Cloning](images/lesson3/post-cloning-dialog.png)
-
-Your Visual Studio Code window should now look like this:
-
-![Window after Cloning](images/lesson3/post-cloning-window.png)
-
-The last thing you need to do before editing code is to checkout your specific branch. As mentioned in [Exercise 1.2](#exercise-12), each attendee has their own branch. To checkout your branch, open the Command Palette and select _Git: Checkout to..._.
-
-![Branch List](images/lesson3/branch-list.png)
-
-Select your branch and press _Enter_.
-
-In Visual Studio Code, the current branch is shown in the bottom left-hand corner. Confirm that the proper branch has been selected.
-
-![Branch Indicator](images/lesson3/branch-indicator.png)
-
-#### Exercise 3.2
-
-Now that the code is checked out, the two issues identified by Cloud Manager can be fixed. Based on the spreadsheet, you can see that the issues are in the files named _NotFoundResponseStatus.java_ and _SimpleServlet.java_.
-
-To easily open these files, open the _Go_ menu and select _Go to File..._. Then enter the file name.
-
-![Open File](images/lesson3/open-file.png)
-
-For both files, the fixes are in the source file, just commented out. Follow the inline instructions as to which lines to add comments to and which lines to uncomment. After making the directed changes, _NotFoundResponseStatus.java_ should look like this:
-
-![Fixed NotFoundResponseStatus.java](images/lesson3/notfoundresponsestatus-fixed.png)
-
-And _SimpleServlet.java_ should look like this:
-
-![Fixed NotFoundResponseStatus.java](images/lesson3/simpleservlet-fixed.png)
-
-Remember to save both files.
-
-These changes now need to be committed to the git repository. Open the Command Palette and select _Git: Commit All_. You'll be prompted to first stage your changes. Click the _Yes_ button.
-
-![Stage Changes Dialog](images/lesson3/git-stage-all.png)
-
-You'll then be prompted for a commit message. Type some useful message and press _Enter_.
-
-![Stage Changes Dialog](images/lesson3/commit-message.png)
-
-Finally, to push this commit to the Cloud Manager git repository, open the Command Palette again and select _Git: Push_.
-
-#### Exercise 3.3
-
-With the fixes to the issues committed and pushed, the pipeline should successfully execute. To try this, go back to the web browser, navigate to the Cloud Manager Overview page, find your pipeline and build it again.
-
-## Lesson 4 - Create a Webhook
+## Lesson 1 - Create a Webhook
 
 ### Objectives
 
@@ -259,7 +55,7 @@ In this lesson, you will run a simple web application which illustrates the type
 
 ![Lab Touchpoints - Lesson 4](images/lesson4/roadmap.png)
 
-#### Exercise 4.1
+#### Exercise 1.1
 
 The next two lessons are focused on how to use the Cloud Manager API and Adobe I/O to receive notifications from Cloud Manager when the pipeline starts. To do this, we will create a _webhook_. A webhook is simply a small web application which receives a request from a service when something has happened. In this case, Adobe I/O will invoke the webhook on any pipeline event -- when the pipeline starts, when it ends, when individual steps start and end, etc.
 
@@ -297,7 +93,7 @@ In the second Terminal panel, run the command `curl -X POST http://localhost:[PO
 
 Congratulations! You've run a simple webhook.
 
-#### Exercise 4.2
+#### Exercise 1.2
 
 In order for Adobe I/O to access the webhook, it must be accessible on the public internet. Since your laptops are not publicly accessible, we will use a piece of software named [ngrok](https://ngrok.com/download) to create a tunnel which allows Adobe I/O to access the webhook.
 
@@ -323,7 +119,7 @@ If you want to be sure this is working, feel free to open a third split Terminal
 
 Now that we have a simple webhook running, we can setup and run the real webhook.
 
-## Lesson 5 - Webhook Setup
+## Lesson 2 - Webhook Setup
 
 ### Objectives
 
@@ -335,9 +131,9 @@ Now that we have a simple webhook running, we can setup and run the real webhook
 
 In this lesson, you will be configuring the actual webhook which will be invoked by Adobe I/O and will, in turn, invoke a Microsoft Teams API in order to send a notification when your Cloud Manager pipeline starts.
 
-![Lab Touchpoints - Lesson 5](images/lesson5/roadmap.png)
 
-#### Exercise 5.1
+
+#### Exercise 2.1
 
 > Before proceeding with this exercise, make sure that ngrok is running; the URL generated each time you start ngrok may be different and that URL will be used in this exercise (and the next one). If you need to stop and restart ngrok, you will need to go back to the Adobe I/O console.
 
@@ -410,7 +206,7 @@ Then you can paste this value into the `.env` file.
 
 ![Private Key in .env file](images/lesson5/env-file-with-private-key.png)
 
-#### Exercise 5.2
+#### Exercise 2.2
 
 The next value we need is a webhook URL which will be used to post messages to Microsoft Teams or Slack.
 
@@ -452,7 +248,7 @@ The last value which needs to be populated in the `.env` file is the name of the
 
 ![Pipeline Name in .env file](images/lesson5/env-file-with-pipeline-name.png)
 
-#### Exercise 5.3
+#### Exercise 2.3
 
 With our webhook fully configured, we can start it and register it with Adobe I/O.
 
@@ -488,7 +284,7 @@ However, if you have entered the wrong URL, you will see a message that the veri
 
 ![Failed Event Registration](images/lesson5/failed-event-registration.png)
 
-## Lesson 6 - Testing it Out
+## Lesson 3 - Testing it Out
 
 ### Objectives
 
@@ -501,11 +297,11 @@ In this last lesson, you will test the process end to end by starting the pipeli
 
 ![Lab Touchpoints - Lesson 6](images/lesson6/roadmap.png)
 
-#### Exercise 6.1
+#### Exercise 3.1
 
 At this point, your webhook and ngrok should be running and registered with Adobe I/O. So now it is time to run the pipeline again. Go back to the Overview page in Cloud Manager, find your pipeline and start it.
 
-#### Exercise 6.2
+#### Exercise 3.2
 
 Depending on how quickly everyone in the lab has reached this step, our Microsoft Teams channel is about to get very noisy. Each pipeline start should result in this kind of notification in the channel:
 
