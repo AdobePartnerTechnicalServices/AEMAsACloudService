@@ -68,50 +68,12 @@ In skyline the dispatcher configurations will be installed on to the container t
 
 1. Create a folder called "dispatcher" as a sibling of "core" "ui.apps" etc.
 2. Create a subfolder called "src" underneatch the dispatcher
-3. Create two sub folders called config.d and config.dispatcher.d under src
-4. Organize the files in those folders as outlined following :
+3. Create two sub folders called conf.d and conf.dispatcher.d under src
+4. Copy all the configuration files from  given [conf.d](./dispatcher/src/conf.d) folder and [confi.dispatcher.d folder](./dispatcher/src/conf.d) to your newly created folder
 
-```
-./
-├── conf.d
-│   ├── available_vhosts
-│   │   └── default.vhost
-│   ├── dispatcher_vhost.conf
-│   ├── enabled_vhosts
-│   │   ├── README
-│   │   └── default.vhost -> ../available_vhosts/default.vhost
-│   └── rewrites
-│   │   ├── default_rewrite.rules
-│   │   └── rewrite.rules
-│   └── variables
-|       ├── custom.vars
-│       └── global.vars
-└── conf.dispatcher.d
-    ├── available_farms
-    │   └── default.farm
-    ├── cache
-    │   ├── default_invalidate.any
-    │   ├── default_rules.any
-    │   └── rules.any
-    ├── clientheaders
-    │   ├── clientheaders.any
-    │   └── default_clientheaders.any
-    ├── dispatcher.any
-    ├── enabled_farms
-    │   ├── README
-    │   └── default.farm -> ../available_farms/default.farm
-    ├── filters
-    │   ├── default_filters.any
-    │   └── filters.any
-    ├── renders
-    │   └── default_renders.any
-    └── virtualhosts
-        ├── default_virtualhosts.any
-        └── virtualhosts.any
-```
 Refer [Dispatcher Config](DispatcherConfig.md) for more details.
 
-5. In Dispatcher Folder, create pom.xml
+5. In Dispatcher Folder, create pom.xml and assembly.xml
 6. Add following code to pom.xml and change parent as per your project name.
 
 ```
@@ -159,7 +121,7 @@ Refer [Dispatcher Config](DispatcherConfig.md) for more details.
 
 ```
 
-7. Add assembly.xml and update with following code
+1. Update assembly.xml with following code
    ```
     <assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -213,6 +175,7 @@ Refer [Dispatcher Config](DispatcherConfig.md) for more details.
 ```
 
 You should get following 
-![Terminal Output](validator-terminal.png)
 
-Step 2. If needed make changes to dispatcher configurations and Re-run step 6.
+![Terminal Output](validator-terminal.jpeg)
+
+Step 2. If you get error you should update dispatcher configurations and Re-run step 6.
