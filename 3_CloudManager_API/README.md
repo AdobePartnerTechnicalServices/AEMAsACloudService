@@ -50,11 +50,11 @@ In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/abo
 1. Navigate to https://glitch.com/ 
 2. Click ` Sign In `
 
-     > ![snitch-1](./images/snitch_1.PNG)
+     > ![snitch-1](./images/snitch_1.png)
 
 3. Select an appropriate Sign In option to create an account. For this exercise we are using ` Sign in with GitHub ` option
 
-    > ![snitch-2](./images/snitch_2.PNG)
+    > ![snitch-2](./images/snitch_2.png)
 
 ## Lesson 2 - Webhook Setup
 
@@ -76,22 +76,22 @@ In this lesson, you will run a simple web application which illustrates the type
 
 
 2. Webhook code should load up in the Glitch IDE
-    > ![snitch-3](./images/snitch_3.PNG)
+    > ![snitch-3](./images/snitch_3.png)
 
 3. ` .env ` file defines the Environment Configuration i.e. the Client Id, Client Secret, Microsft teams API endpoint etc will be specified here
 4. ` index.js ` contains the Webhook code. For more information on creating webhhoks please refer to https://github.com/AdobeDocs/cloudmanager-api-docs/tree/master/tutorial
 5. ` package.json ` defines the build profiles and dependencies.
 6. To test the Webhook, simply click the ` Show ` button and select ` In a New Window `
 
-    > ![snitch-4](./images/snitch_4.PNG)
+    > ![snitch-4](./images/snitch_4.png)
 
 7. You should see an output like this
 
-    > ![snitch-5](./images/snitch_5.PNG)
+    > ![snitch-5](./images/snitch_5.png)
 
 8. Copy the Webhook URL from the address bar and using CURL or Postman run: ` run curl -X POST <Webhook URL>/webhook `
 
-     > ![snitch-6](./images/snitch_6.PNG)
+     > ![snitch-6](./images/snitch_6.png)
 
 9. You should see ` pong ` as the response.
 
@@ -105,25 +105,25 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
 
     > ` This command will generate a cryptographic certificate in order to securely sign requests to Adobe I/O. `
 
-    > ![openssl-crt](./images/snitch_7.PNG)
+    > ![openssl-crt](./images/snitch_7.png)
 
 2. Log in to https://console.adobe.io/integrations 
 3. Switch to the correct IMS organization
 4. Click ` New integration `
-    > ![adobe-io-console](./images/snitch_8.PNG)
+    > ![adobe-io-console](./images/snitch_8.png)
 
 5. Select ` Access an API ` option and click ` Continue `
-    > ![adobe-io-console](./images/snitch_9.PNG)
+    > ![adobe-io-console](./images/snitch_9.png)
 
 6. Select ` Cloud Manager ` and click ` Continue `
-  > ![adobe-io-console](./images/snitch_10.PNG)
+  > ![adobe-io-console](./images/snitch_10.png)
 
 7. Specify:
     * Name
     * Description
     * Public keys certificates: ` Upload certificate.crt `
     * Product Profile: ` AEM Managed Services - Default Profile `
-    > ![adobe-io-console](./images/snitch_11.PNG)
+    > ![adobe-io-console](./images/snitch_11.png)
 
 8. Click on ` Create Integration `.
 9. Copy the values from ` Overview ` and Paste into the corresponding field in the ` .env ` file
@@ -131,7 +131,7 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
     * `  Organization ID ` -> ` ORGANIZATION_ID `
     * ` Technical account ID ` -> ` TECHNICAL_ACCOUNT_ID `
     * ` Client secret ` -> ` CLIENT_SECRET `
-    > ![adobe-io-console](./images/snitch_12.PNG)
+    > ![adobe-io-console](./images/snitch_12.png)
 
 10. To copy the ` Private Key ` without any line breaks run the following command:
 
@@ -139,15 +139,15 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
 
     > Paste the private key into a notepad before specifying the values in ` .env ` file
 11. ` .env ` file would look something like
-    > ![adobe-io-console](./images/snitch_13.PNG)
+    > ![adobe-io-console](./images/snitch_13.png)
 
 12. Navigate back to Adobe IO Console
 13. Click ` Events ` Tab, Select ` Cloud Manager ` and Click ` Add Event Provider  `
 
-     > ![adobe-io-console](./images/snitch_14.PNG)
+     > ![adobe-io-console](./images/snitch_14.png)
 
 14. Click  ` Add Event Registration ` 
-     > ![adobe-io-console](./images/snitch_15.PNG)
+     > ![adobe-io-console](./images/snitch_15.png)
  
 15. Set
     * Event Registration Name
@@ -156,11 +156,11 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
     * Select ` Pipeline Execution Started `
     * Event Delivery Method : ` One at a time `
 
-    > ![adobe-io-console](./images/snitch_16.PNG)
+    > ![adobe-io-console](./images/snitch_16.png)
 
 16. ` Save `. Webhook should get registered.
 
-    > ![adobe-io-console](./images/snitch_17.PNG)
+    > ![adobe-io-console](./images/snitch_17.png)
 
 
 ### Lesson 2.3: Setup Microsoft Teams
