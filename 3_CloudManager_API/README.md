@@ -67,6 +67,7 @@ In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/abo
 
 In this lesson, you will run a simple web application which illustrates the type of application typically run to receive events from Adobe I/O. You will also use a tool called [Glitch](https://glitch.com/) to deploy and expose the application to the public internet.
 
+### Lesson 2.1: Setup Webhook
 
 1. Click on bellow button to setup code the webhook within your Glitch Workspace.
 
@@ -92,7 +93,107 @@ In this lesson, you will run a simple web application which illustrates the type
 
      > ![snitch-6](./images/snitch_6.PNG)
 
-9. 
+9. You should see ` pong ` as the response.
+
+### Lesson 2.2: Setup Adobe IO Integration
 
 
+We now need to populate the first handful of lines in ` .env ` file. To do this, we will register an Integration in the Adobe I/O Console. Before doing that, we need to 
 
+1. Run the following command in the Terminal Window or Command Prompt: 
+    >   ` openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out certificate.crt `
+
+    > ` This command will generate a cryptographic certificate in order to securely sign requests to Adobe I/O. `
+
+    > ![openssl-crt](./images/snitch_7.PNG)
+
+2. Log in to https://console.adobe.io/integrations 
+3. Switch to the correct IMS organization
+4. Click ` New integration `
+    > ![adobe-io-console](./images/snitch_8.PNG)
+
+5. Select ` Access an API ` option and click ` Continue `
+    > ![adobe-io-console](./images/snitch_9.PNG)
+
+6. Select ` Cloud Manager ` and click ` Continue `
+  > ![adobe-io-console](./images/snitch_10.PNG)
+
+7. Specify:
+    * Name
+    * Description
+    * Public keys certificates: ` Upload certificate.crt `
+    * Product Profile: ` AEM Managed Services - Default Profile `
+    > ![adobe-io-console](./images/snitch_11.PNG)
+
+8. Click on ` Create Integration `.
+9. Copy the values from ` Overview ` and Paste into the corresponding field in the ` .env ` file
+    * ` API Key (Client ID) ` -> ` API_KEY `
+    * `  Organization ID ` -> ` ORGANIZATION_ID `
+    * ` Technical account ID ` -> ` TECHNICAL_ACCOUNT_ID `
+    * ` Client secret ` -> ` CLIENT_SECRET `
+    > ![adobe-io-console](./images/snitch_12.PNG)
+
+10. To copy the ` Private Key ` without any line breaks run the following command:
+
+    > ` npm run clean-private-key | pbcopy `
+
+    > Paste the private key into a notepad before specifying the values in ` .env ` file
+11. ` .env ` file would look something like
+    > ![adobe-io-console](./images/snitch_13.PNG)
+
+12. Navigate back to Adobe IO Console
+13. Click ` Events ` Tab, Select ` Cloud Manager ` and Click ` Add Event Provider  `
+
+     > ![adobe-io-console](./images/snitch_14.PNG)
+
+14. Click  ` Add Event Registration ` 
+     > ![adobe-io-console](./images/snitch_15.PNG)
+ 
+15. Set
+    * Event Registration Name
+    * Webhook URL ( optional ): ` <Webhook URL>/webhook `
+    * Event Description
+    * Select ` Pipeline Execution Started `
+    * Event Delivery Method : ` One at a time `
+
+    > ![adobe-io-console](./images/snitch_16.PNG)
+
+16. ` Save `. Webhook should get registered.
+
+    > ![adobe-io-console](./images/snitch_17.PNG)
+
+
+### Lesson 2.3: Setup Microsoft Teams
+
+1. Download and Install [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/download-app#desktopAppDownloadregion)
+2. Join [AEM Livetrial](https://teams.microsoft.com/l/channel/19%3a5b863af592054aeeb1a626312d632c92%40thread.skype/General?groupId=c439f143-e41d-4170-bb84-ee0a79a7e846&tenantId=fa7b1b5a-7b34-4387-94ae-d2c178decee1) Team
+3. To create an Incoming Webhook integration, click the Store icon.
+    > ![Teams Store Button](./images/teams-store-button.png)
+
+4. Search for _incoming_ and click on _Incoming Webhook_.
+
+    > ![Search for Incoming Webhook Connector](./images/teams-incoming-search.png) 
+
+5. Select ` AEM Livetrials > General ` as the team. Since the connector is already installed, click the _Available_ link.
+
+    > ![Select Team](./images/teams-team-select-available.png)
+
+6. The webhook should send messages to the General channel by default. On the next screen, click _Set up_.
+
+7. You need to provide a name for your webhook. Do this with a name based on your attendee number and click the _Create_ button.
+
+    > ![Name Teams Webhook](./images/teams-webhook-name.png)
+
+8. You will now see a URL (it will begin with `https://outlook.office.com/webhook/`). Click the button to copy this to the clipboard and click the _Done_ button.
+
+    > ![Name Teams URL](./images/teams-webhook-url.png)
+
+9. Now switch back to `Glitch` and paste the copied URL as the value of the `TEAMS_WEBHOOK` variable in the _.env_ file.
+
+    > ![Teams URL in .env file](./images/snitch_18.png)
+
+## Testing and Validation
+
+Go back to Cloud Manager and Execute the pipeline. You should see a message like ` Update from Cloud Manager Execution for We.Retail Assets started `, in Microsoft Teams.
+
+> ![Message from Teams](./images/snitch_19.png)
