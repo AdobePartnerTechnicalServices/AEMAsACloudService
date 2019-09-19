@@ -50,11 +50,11 @@ In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/abo
 1. Navigate to https://glitch.com/ 
 2. Click ` Sign In `
 
-     > ![snitch-1](./images/snitch_1.png)
+     > ![snitch-1](./images/snitch_1.PNG)
 
 3. Select an appropriate Sign In option to create an account. For this exercise we are using ` Sign in with GitHub ` option
 
-    > ![snitch-2](./images/snitch_2.png)
+    > ![snitch-2](./images/snitch_2.PNG)
 
 ## Lesson 2 - Webhook Setup
 
@@ -72,26 +72,26 @@ In this lesson, you will run a simple web application which illustrates the type
 1. Click on bellow button to setup code the webhook within your Glitch Workspace.
 
   <a href="https://glitch.com/edit/#!/remix/webhook-ms-teams">
-  <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.png?1513093958726" alt="remix this" height="33"></a> 
+  <img src="https://cdn.glitch.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix%402x.PNG?1513093958726" alt="remix this" height="33"></a> 
 
 
 2. Webhook code should load up in the Glitch IDE
-    > ![snitch-3](./images/snitch_3.png)
+    > ![snitch-3](./images/snitch_3.PNG)
 
 3. ` .env ` file defines the Environment Configuration i.e. the Client Id, Client Secret, Microsft teams API endpoint etc will be specified here
 4. ` index.js ` contains the Webhook code. For more information on creating webhhoks please refer to https://github.com/AdobeDocs/cloudmanager-api-docs/tree/master/tutorial
 5. ` package.json ` defines the build profiles and dependencies.
 6. To test the Webhook, simply click the ` Show ` button and select ` In a New Window `
 
-    > ![snitch-4](./images/snitch_4.png)
+    > ![snitch-4](./images/snitch_4.PNG)
 
 7. You should see an output like this
 
-    > ![snitch-5](./images/snitch_5.png)
+    > ![snitch-5](./images/snitch_5.PNG)
 
 8. Copy the Webhook URL from the address bar and using CURL or Postman run: ` run curl -X POST <Webhook URL>/webhook `
 
-     > ![snitch-6](./images/snitch_6.png)
+     > ![snitch-6](./images/snitch_6.PNG)
 
 9. You should see ` pong ` as the response.
 
