@@ -17,14 +17,10 @@ maintenance window is owned by Adobe. For example, version purge, project purge,
 |------------------------------|------------------------|-----------------------------------|
 | Datastore garbage collection | Adobe                  | N/A - Adobe Owned                 |
 | Version Purge MT             | Shared                 | UI removed so must be done in git |
-|                              |                        |                                   |
 | Audit Log Purge              | Shared                 | UI removed so must be done in git |
-|                              |                        |                                   |
 | Lucene Binaries cleanup      | Removed from Skyline   | N/A - removed                     |
 | Ad-hoc Task Purge            | Shared                 | UI removed so must be done in git |
-|                              |                        |                                   |
 | Workflow Purge               | Shared                 | UI removed so must be done in git |
-|                              |                        |                                   |
 | Project Purge                | Shared                 | UI removed so must be done in git |
 
 
