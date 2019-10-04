@@ -39,11 +39,11 @@ In this lesson we will go explore the Sling Content Distribution Framework
 
 7. Click on ` Logs ` Tab to view the log messages
 
-    > ![scd_8.png](./images/scd_8.png)
+    > ![scd_8.png](./images/scd_8.PNG)
 
 8. Click on ` Distribute `
 
-    > ![scd_9.png](./images/scd_9.png)
+    > ![scd_9.png](./images/scd_9.PNG)
 
 9. Select ` Add Tree ` and select a content path
 
@@ -53,7 +53,7 @@ In this lesson we will go explore the Sling Content Distribution Framework
 
 11. Verify the status for ` forwardPublisher ` agent by going back to the ` Status ` tab
 
-  > ![scd_11.png](./images/scd_11.png)
+  > ![scd_11.png](./images/scd_11.PNG)
 
 12. Click on the ` Logs ` tab to verify the log messages
 
