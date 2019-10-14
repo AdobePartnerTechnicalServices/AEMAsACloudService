@@ -26,3 +26,6 @@ maintenance window is owned by Adobe. For example, version purge, project purge,
 
 #### Lesson Context
 
+In this scenario we will configure and schedule Maintenance Tasks for Skyline Author Instance
+
+1. 
