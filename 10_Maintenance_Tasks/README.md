@@ -4,7 +4,7 @@
 ### Scenario Roadmap
 
 In 6.x, the admin UI's Maintenance card (Tools > Operations > Maintenance) provided a means to configure Maintenance Tasks. It linked to ` /system/console/configMgr `, which persisted various configurations to the repository. For 
-Adobe Expereince Manager, the Maintenance card will not be accessible and so configuration should be committed to source control and deployed via Cloud Manager. 
+Adobe Experience Manager, the Maintenance card will not be accessible and so configuration should be committed to source control and deployed via Cloud Manager. 
 
 Going ahead Maintenance Tasks, can be divided into two main categories: 
 
@@ -26,6 +26,34 @@ maintenance window is owned by Adobe. For example, version purge, project purge,
 
 #### Lesson Context
 
-In this scenario we will configure and schedule Maintenance Tasks for Skyline Author Instance
+In this scenario we will configure and schedule Maintenance Tasks for Skyline Author Instance. We will use:
+* The Cloud Ready Quickstart to create the configuration and verify the execution of the Maintenance Task. 
+* Filevault to synchronize changes between JCR and code base. 
+
+##### 1. Set up Schedule for Maintenance Tasks : 
+
+1. Launch Cloud Ready Quick Start.
+2. Navigate to CRXDE Lite.
+3. By default, maintenance schedule is maintained at ` /apps/settings/granite/operations/maintenance `.  Maintenance tasks are defined under ` /libs/settings/granite/operations/maintenance/granite_daily `  & ` /libs/settings/granite/operations/maintenance/granite_weekly `  
+4. Goto ` /conf/global/settings ` and create the following node:
+    > Node Name : ` granite ` <br>
+    > Node Type: ` sling:folder`
+5. Goto ` /conf/global/settings/granite ` and create the following node: 
+    > Node Name : ` operations ` <br>
+    > Node Type: ` sling:folder`
+6. Copy the ` maintenance ` node from ` /apps/settings/granite/operations/maintenance ` and paste it underneath ` /conf/global/settings/granite/operations `
+
+    > This will allow us to maintain the schedule for maintenance task as a part of content (mutable) package  
+
+7. Select ` granite_daily ` and reset the ` windowEndTime ` and ` windowStartTime ` to an appropriate duration
+8. Select ` granite_weekly ` and reset the ` windowEndTime ` and ` windowStartTime ` to an appropriate duration
+9. Tail the error.log, messages like below should be logged:
+```
+15.10.2019 14:25:00.010 *INFO* [pool-21-thread-1] com.adobe.granite.maintenance.crx.impl.RevisionCleanupTask Full GC scheduled to run on Sun. Today is Tue.
+15.10.2019 14:25:00.012 *INFO* [pool-21-thread-1] com.adobe.granite.maintenance.impl.MaintenanceJobsManagerImpl Name='RevisionCleanupTask', Status='ACTIVE', Result='', Details='{"created":1571163900012,"started":1571163900012}'
+15.10.2019 14:25:00.042 *INFO* [pool-21-thread-1] com.adobe.granite.maintenance.crx.impl.RevisionCleanupTask Starting RevisionGC with compaction type tail
+15.10.2019 14:25:00.048 *INFO* [TarMK revision gc [C:\Users\vmitra\Documents\AEM\skyline\crx-quickstart\repository\segmentstore]] org.apache.jackrabbit.oak.segment.file.FileStore TarMK GC #1: started
+```
+##### 2. Synchronize the Maintenance Tasks with Source Code
 
 1. 
