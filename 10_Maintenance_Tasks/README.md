@@ -56,4 +56,14 @@ In this scenario we will configure and schedule Maintenance Tasks for Skyline Au
 ```
 ##### 2. Synchronize the Maintenance Tasks with Source Code
 
-1. 
+1. Navigate to ` <git-project-name>\ui.content\src\main\content\META-INF\vault `
+2. Open the ` filter.xml ` file and add the following filter definition: 
+    > ` <filter root="/conf/global/settings/granite/operations/maintenance" mode="merge"/> `
+3. Navigate to ` ./../../jcr_root ` using command prompt 
+4. Use Filevault to serialize the maintenance task configuration to Source Code 
+    >  ` vlt --credentials admin:admin co http://localhost:4502/crx --force `
+5. Commit the updated source code to cloud manager GitHub.
+---
+
+```
+In the next scenario we will deploy the maintenance task configuration to Skyline.
