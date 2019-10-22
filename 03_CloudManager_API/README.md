@@ -107,6 +107,8 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
 
     > ` This command will generate a cryptographic certificate in order to securely sign requests to Adobe I/O. `
 
+    > ` Retain the private.key and certificate.crt,  these will be used again for Scenario 11   `
+
     > ![openssl-crt](./images/snitch_7.png)
 
 2. Log in to https://console.adobe.io/integrations 

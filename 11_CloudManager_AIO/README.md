@@ -62,5 +62,36 @@ In order to setup Cloud Manager plugin for the Adobe I/O CLI, we will follow the
 
 2. Configure the credentials:
 
-    > ` 
+    > ` aio config:set jwt-auth PATH_TO_CONFIG_JSON_FILE --file --json ` 
+    
+    > e.g. ` aio config:set jwt-auth ./config.json --file --json `
+
+3. Configure the path to private key generated in Scenario 3:
+    > ` aio config:set jwt-auth.jwt_private_key PATH_TO_PRIVATE_KEY_FILE --file `
+
+    > e.g. ` aio config:set jwt-auth.jwt_private_key ./private.key --file `
+
+4. Set default Program ID:
+
+    > aio config:set cloudmanager_programid PROGRAMID
+
+    > e.g. ` aio config:set cloudmanager_programid 3356 `
+
+    > ![6.PNG](./images/6.PNG)
+
+5. Obtain the pipeline information
+    > ` aio cloudmanager:list-pipelines `
+
+    > ![7.PNG](./images/7.PNG)
+
+6. Execute Pipeline
+
+    > ` aio cloudmanager:start-execution PIPELINE_ID `
+
+    > e.g. ` aio cloudmanager:start-execution 87518 `
+
+    > ![8.PNG](./images/8.PNG)
+
+7. Check the pipeline status through Cloud Manager.
+8. Execute the commands listed at https://github.com/adobe/aio-cli-plugin-cloudmanager 
 
