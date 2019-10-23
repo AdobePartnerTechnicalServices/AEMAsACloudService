@@ -3,7 +3,7 @@
 
 ### Scenario Roadmap
 
-In this scenario, we will use Clod Manager and Cloud Manager plugin for the Adobe I/O CLI to access log files for AEM as a Cloud Service Environment.
+In this scenario, we will use Cloud Manager and the Cloud Manager plugin for the Adobe I/O CLI to access log files for AEM as a Cloud Service Environment.
 
 #### Lesson Context
 
