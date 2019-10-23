@@ -12,3 +12,14 @@ With AEM as a Cloud Service, this would have not been possible as Blueprint Conf
 In AEM as a Cloud Service, any live copy source is now a "blueprint", meaning rollout can now be initiated on a live copy source. As soon a live copy is created, the source automatically becomes a "blueprint".
 
 #### Lesson Context
+
+
+
+ToDo: 
+2.) Create a Live Copy from we.retail/us/en
+
+3.) When Live Copy is successfully created check properties page of we.retail/us/en , blueprint tab should be visible with rollout and live copy overview actions visible. 
+
+4.) check both the above actions are working fine
+
+5.) go to live copy overview , select a row and see rollout action should be visible and working.
