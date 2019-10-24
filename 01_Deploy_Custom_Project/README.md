@@ -13,8 +13,8 @@ Cloud Manager is in charge of all orchestrations and deployments to the instance
 * Provisioned AEM Cloud Program 
 * Access to Cloud Manager Git Repository
 
-#### Create a Project
-1. Create a new project using latest Archetype 
+#### Pre-requisites Create a Project
+1. Create a new project using the latest Archetype or have an existing project
 
 
 ### Step 1. Push your project code to Git Repository
