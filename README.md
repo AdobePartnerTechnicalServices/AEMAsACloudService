@@ -10,4 +10,9 @@ The following are the draft scenarios for AEM as a Cloud Service Launch Events :
 6. [Convert AMS Dispatcher Configuration to AEM Cloud Dispatcher Configuration](./6_Convert_Dispatcher_Config/README.md)
 7. [Seach And Indexing in AEM as a Cloud Service](./Seach_Indexing/README.md)
 8. [Authoring Improvements in AEM as a Cloud Service](./Authoring_Improvements/README.md)
-
+9. [Replication Improvements in AEM as a Cloud Service](./Replication_Improvements/README.md)
+10. [Maintenance Tasks in AEM as a Cloud Service](./Maintenance_Tasks/README.md)
+11. [CloudManager_AIO in AEM as a Cloud Service](./CloudManager_AIO/README.md)
+12. [Accessing Log Files in AEM as a Cloud Service](./Access_Log_files/README.md)
+13. [NUI in AEM as a Cloud Service](./NUI/README.md)
+14. [MSM Improvements in AEM as a Cloud Service](./MSM_Improvements/README.md)
