@@ -13,16 +13,14 @@
 * Next Steps
 
 
-
-
 ### Scenario Roadmap
 
 In this scenario, we'll be using a number of different tools, so before we get started, let's do a quick overview of what each of these tools does and how we will be using them.
 
 * Cloud Manager
-    *  In this scenatio, we'll be setting up a CI/CD pipeline in Cloud Manager and executing it a few times. 
+    *  In this scenario, we'll be setting up a CI/CD pipeline in Cloud Manager and executing it a few times. 
 *  Git
-   * Git is a version control system. Every Cloud Manager customer is provided with a git repository. This scenario won't be teaching you the ins and outs of using git; just enough to get by. 
+   * Git is a version control system. Every Cloud Manager customer is provided with a git repository. This scenario won't be teaching you the ins and outs of using git; just enough for you to get by. 
 * Adobe I/O
     *  Adobe I/O is Adobe's centralized API Gateway through which customers and partners can integrate with the entire Adobe product portfolio. 
 * Microsoft Teams
@@ -30,7 +28,7 @@ In this scenario, we'll be using a number of different tools, so before we get s
 
 ### Prerequisites
 
-As a LiveTrial attendee, you have been provisioned with all of the necessary access and software needed to participate in this scenario. If you are using this workbook outside of the LiveTrial, you'll need the following:
+You will need the following in order to work through this scenario:
 
 * Access to Cloud Manager with the Deployment Manager role.
 * The System Administrator role for your Organization in the Adobe Admin Console.
@@ -40,10 +38,11 @@ As a LiveTrial attendee, you have been provisioned with all of the necessary acc
 
 ### Objectives
 
-* Setup a Glitch Account
+* Setup a Glitch Account in order to creat a web application
 
 ### Lesson Context
 
+### Step 1. Setup a Glitch account 
 
 In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/about/) is a simple tool for creating Web Applications
 
@@ -56,7 +55,7 @@ In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/abo
 
     > ![snitch-2](./images/snitch_2.PNG)
 
-## Lesson 2 - Webhook Setup
+### Step 2. Setup a webhook
 
 ### Objectives
 
@@ -67,9 +66,7 @@ In this lesson, we will set up a Glitch Account. [Glitch](https://glitch.com/abo
 
 In this lesson, you will run a simple web application which illustrates the type of application typically run to receive events from Adobe I/O. You will also use a tool called [Glitch](https://glitch.com/) to deploy and expose the application to the public internet.
 
-### Lesson 2.1: Setup Webhook
-
-1. Click on bellow button to setup code the webhook within your Glitch Workspace.
+1. Click on the below button to setup a webhook within your Glitch Workspace.
 
   <!-- Remix Button -->
 <a href="https://glitch.com/edit/#!/remix/pollen-diadem">
@@ -77,7 +74,7 @@ In this lesson, you will run a simple web application which illustrates the type
 </a>
 
 
-2. Webhook code should load up in the Glitch IDE
+2. The Webhook code should load up in the Glitch IDE, as shown here:
     > ![snitch-3](./images/snitch_3.PNG)
 
 3. ` .env ` file defines the Environment Configuration i.e. the Client Id, Client Secret, Microsft teams API endpoint etc will be specified here
@@ -97,8 +94,9 @@ In this lesson, you will run a simple web application which illustrates the type
 
 9. You should see ` pong ` as the response.
 
-### Lesson 2.2: Setup Adobe IO Integration
+### Step 3. Setup the Adobe I/O integration
 
+### Lesson Context
 
 We now need to populate the first handful of lines in ` .env ` file. To do this, we will register an Integration in the Adobe I/O Console. Before doing that, we need to 
 
@@ -167,10 +165,11 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
     > ![adobe-io-console](./images/snitch_17.png)
 
 
-### Lesson 2.3: Setup Microsoft Teams
+### Step 4. Setup Microsoft Teams
+
 
 1. Download and Install [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/download-app#desktopAppDownloadregion)
-2. Join [AEM Livetrial](https://teams.microsoft.com/l/channel/19%3a5b863af592054aeeb1a626312d632c92%40thread.skype/General?groupId=c439f143-e41d-4170-bb84-ee0a79a7e846&tenantId=fa7b1b5a-7b34-4387-94ae-d2c178decee1) Team
+2. Join [AEM Event](https://teams.microsoft.com/l/channel/19%3a5b863af592054aeeb1a626312d632c92%40thread.skype/General?groupId=c439f143-e41d-4170-bb84-ee0a79a7e846&tenantId=fa7b1b5a-7b34-4387-94ae-d2c178decee1) Team
 3. To create an Incoming Webhook integration, click the Store icon.
     > ![Teams Store Button](./images/teams-store-button.png)
 
@@ -178,7 +177,7 @@ We now need to populate the first handful of lines in ` .env ` file. To do this,
 
     > ![Search for Incoming Webhook Connector](./images/teams-incoming-search.png) 
 
-5. Select ` AEM Livetrials > General ` as the team. Since the connector is already installed, click the _Available_ link.
+5. Select ` AEM Event > General ` as the team. Since the connector is already installed, click the _Available_ link.
 
     > ![Select Team](./images/teams-team-select-available.png)
 
