@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # AEM as a Cloud Service () -   Scenarios
 
 Following are the draft scenarios for AEM as a Cloud Launch Events :
+=======
+# AEM Cloud (Skyline) -  Scenarios
+
+Following are the draft scenarios for AEM as a Cloud Service Launch Events :
+>>>>>>> 908c67aea46da4ee1502af94609e4de410aa28e1
 
 1. [Deploy Your First Project to AEM Cloud](./1_Deploy_Custom_Project/README.md )
 2. [Merge Two Projects & Deploy](./2_Project_Merge/README.md)
