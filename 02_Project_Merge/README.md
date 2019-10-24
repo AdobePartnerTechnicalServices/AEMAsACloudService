@@ -22,20 +22,22 @@ This scenario comprises of 3 parts:
 5. Adobe Public Maven Repository in maven settings 
 
 #### Scenario 2
-#### 2a. Clone WKND Project
+
+### Step 1. Clone the WKND Project
+
 1. Clone [WKND Sites Project](https://github.com/adobe/aem-guides-wknd/tree/solution/chapter-8)
     > ` git clone --branch solution/chapter-8 https://github.com/adobe/aem-guides-wknd.git `
 
 2. Set up an empty Git Repository 
     > ` This GIT repository will be referred to as Origin `
-3. Open Command Prompt or Terminal Window.
-4. Navigate using command line to the local directory that contains cloned WKND Project
+3. Open the Command Prompt or the Terminal Window.
+4. Navigate using the command line to the local directory that contains cloned WKND Project
 5. Execute the following commands, to delete the `.git` folder
     * Windows:
       > rmdir .git /S
     * Mac
       > rm -R .git
-6. Initialize the local repository and point it to remote `Origin` GitHub
+6. Initialize the local repository and point it to the remote `Origin` GitHub
     > ` git init `
 
     > ` git add . ` 
@@ -49,7 +51,7 @@ This scenario comprises of 3 parts:
 
 ---
 
-#### 2b: Format WKND Project
+### Step 2. Format the WKND Project
 
 1. Navigate using command line to the local directory that contains cloned WKND Project
 2. Create a new directory 
@@ -74,7 +76,7 @@ This scenario comprises of 3 parts:
     > ![wknd_project_3](./resources/wknd_project_3.PNG) ![wknd_project_4](./resources/wknd_project_4.PNG)
     
     
-#### 2c: Clone WKND-Events
+### Step 3. Clone the WKND Events Project
 
 1. Clone [WKND-Events Sites Project](https://github.com/Adobe-Marketing-Cloud/aem-guides-wknd-events/tree/react/chapter-3)
     > ` git clone --branch react/chapter-3 https://github.com/Adobe-Marketing-Cloud/aem-guides-wknd-events.git `
@@ -102,7 +104,8 @@ This scenario comprises of 3 parts:
 
 ---
 
-#### 2d: Format WKND-Events Project
+### Step 4. Format the WKND-Events Project
+
 
 1. Navigate using command line to the local directory that contains cloned WKND Project
 2. Create a new directory 
@@ -129,7 +132,7 @@ This scenario comprises of 3 parts:
     
 ---
 
-#### 2e: Merge WKND and WKND Events
+### Step 5. Merge the WKND and WKND Events project
 
 ###### Description
 
