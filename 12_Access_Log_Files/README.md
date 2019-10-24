@@ -33,7 +33,7 @@ While Log Download is available through both the Cloud Manager UI and API, Log T
 
 ##### 2. Access Logs via Cloud Manager plugin for the Adobe I/O CLI
 
-1. Launch Command Prompt/Terminal 
+1. Launch the Command Prompt/Terminal 
 2. Navigate to Adobe IO CLI Plugin Installation Directory
 3. Execute the following commands:
     > Obtain Environment ID: ` aio cloudmanager:list-environments `
