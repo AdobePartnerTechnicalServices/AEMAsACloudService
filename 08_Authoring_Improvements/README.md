@@ -9,7 +9,9 @@ Page versioning before deletion is now optional. Default is "yes", to ensure con
 
 #### Lesson Context
 
-In this scenario we will initiate a delete operation in AEM Sites.  
+In this scenario we will understand how pages are archived in AEM Sites 
+
+### Step 1. Initiate a delete operation in AEM Sites
 
 1. Select (checked selection) sub-page in AEM Sites.
 
