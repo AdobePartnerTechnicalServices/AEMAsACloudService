@@ -3,28 +3,28 @@
 
 ### Scenario Roadmap
 
-In this scenario we will use Cloud Manager plugin for the Adobe I/O CLI to:
+In this scenario we will use the Cloud Manager plugin for the Adobe I/O CLI to:
 
-* Manage Non-Production Pipeline
-* Trigger Pipeline Execution
-* Access Log files for Skyline Environment
-* View Information for Skyline Environment
+* Manage Non-Production Pipelines
+* Trigger a Pipeline Execution
+* Access Log files for AEM as a Cloud Service Environment
+* View Information for AEM as a Cloud Service Environment
 
 #### Lesson Context
 
-In order to setup Cloud Manager plugin for the Adobe I/O CLI, we will follow the below steps in the given order:
+In order to setup the Cloud Manager plugin for the Adobe I/O CLI, we will follow the below steps in the given order:
 
-1. Set up Adobe IO CLI
-2. Create Integration using Adobe IO Console
-3. Set up Cloud Manager Plugin
-4. Invoke Cloud Manager API
+1. Set up the Adobe IO CLI
+2. Create an Integration using Adobe IO Console
+3. Set up the Cloud Manager Plugin
+4. Invoke the Cloud Manager API
 
 ---
 
-##### 1. Set Up Adobe IO CLI
+##### Step 1. Set Up Adobe IO CLI
 
 1. Download/Clone the [Adobe IO CLI](https://github.com/adobe/aio-cli)
-2. Navigate using command prompt to the downloaded directory
+2. Navigate using the command prompt to the downloaded directory
 3. Run the following commands to install the AIO CLI
     > ` npm install ` <br>
     > ` npm link `
@@ -38,7 +38,7 @@ In order to setup Cloud Manager plugin for the Adobe I/O CLI, we will follow the
 
 ---
 
-##### 2. Create Integration using Adobe IO Console
+##### Step 2. Create the Integration using the Adobe IO Console
 
 1. Navigate to https://console.adobe.io/integrations
 2. Select the correct IMS Org 
@@ -49,13 +49,13 @@ In order to setup Cloud Manager plugin for the Adobe I/O CLI, we will follow the
 
 > ![3.PNG](./images/3.PNG)
 
-5. Copy Client ID, Client Secret and JWT Payload from the Adobe IO Console and paste the value in ` config.json `
+5. Copy the Client ID, Client Secret and JWT Payload from the Adobe IO Console and paste the value in ` config.json `
 
     >  ![4.png](./images/4.PNG) 
 6. `config.json ` should look something like:
     > ![5.PNG](./images/5.PNG)
 ---
-##### 3. Set up Cloud Manager Plugin
+##### Step 3. Set up the Cloud Manager Plugin
 
 1. Run the following commands to install the Cloud Manager plugin for the Adobe I/O CLI:
     > ` aio plugins:install @adobe/aio-cli-plugin-cloudmanager `
