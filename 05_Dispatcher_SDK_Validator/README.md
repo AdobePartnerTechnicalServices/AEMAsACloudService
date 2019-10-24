@@ -14,11 +14,11 @@
 
 ## Scenario Overview
 
-Checking in invalid dispatcher configurations will interrupt the Cloud Manager pipeline. So, we need to check in  code only after validating them locally. Adobe has provided Dispatcher SDK Validator for validating configurations locally.
+Checking in a dispatcher configuration that is invalid will interrupt the Cloud Manager pipeline. It is important to validate the code locally before checking in. Adobe has provided developers the Dispatcher SDK Validator for validating these configurations locally.
 
 The Dispatcher SDK provides:
 
-* Dispatcher Configuration : a vanilla file structure containing the configuration files to include in a maven project for dispatcher
+* Dispatcher Configuration : a vanilla file structure containing the configuration files to include in a maven project for the dispatcher
 * Dispatcher Validator: tooling for customers to validate a dispatcher configuration locally
 * Dispatcher Docker Image: a Docker image that brings up the dispatcher locally
 
@@ -28,15 +28,15 @@ It allows customers to run the same validation that Cloud Manager will perform w
 
 ### Key Takeaways
 
-* Setup Dispatcher SDK Validator
-* Use Dispatcher SDK Validator to validate dispatcher Configureations
+* Setup Dispatcher SDK Validator on your local machine
+* Use the Dispatcher SDK Validator to validate dispatcher Configureations
 
 
 ### Pre-requisites
 
 * AEM Project with Dispatcher Configurations
 
-## Lesson 1 - Setting up Docker
+### Step 1. Setting up Docker locally
 
 1. Install Docker for Mac (https://docs.docker.com/v17.12/docker-for-mac/install/) or to Windows (https://docs.docker.com/v17.12/docker-for-windows/install/)
 
@@ -53,7 +53,7 @@ Username : <ldapid>
 Password: < Paste Token >
 
 ```
-## Lesson 2 - Setup Dispatcher SDK Validator
+### Step 2. Setup the Dispatcher SDK Validator
 
 1. Copy DispacthcerSDKv1.0.2sh to a folder
 2. Open Terminal in the folder and add executable permission to .sh file
@@ -61,10 +61,10 @@ Password: < Paste Token >
 chmod +x DispacthcerSDKv1.0.2sh
 ```
 
-## Lesson 3 - Create Dispatche Configuration
+### Step 3. Create the Dispatcher configurations
 
 ### Lesson Context
-In skyline the dispatcher configurations will be installed on to the container through Cloud Manager. Hence the dispatcher configurations must be checked in into the code along with the AEM Code. Dispatcher is going to become another module.
+In AEM as a Cloud Service the dispatcher configurations will be installed on to the container through Cloud Manager. Hence the dispatcher configurations must be checked in into the code along with the AEM Code. Dispatcher is going to become another module.
 
 1. Create a folder called "dispatcher" as a sibling of "core" "ui.apps" etc.
 2. Create a subfolder called "src" underneatch the dispatcher
@@ -143,7 +143,7 @@ Refer [Dispatcher Config](DispatcherConfig.md) for more details.
 </assembly>
    ```
 
-9. Add dispatcher module to parent pom.xml
+9. Add the dispatcher module to parent pom.xml
 ```
 <project  xmlns="http://maven.apache.org/POM/4.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -165,9 +165,9 @@ Refer [Dispatcher Config](DispatcherConfig.md) for more details.
     ```
 
 
-## Lesson 4 - Run Dispatcher SDK Validator
+### Step 4. Run the dispatcher SDK validator
 
-1. Run Validator by executing following command
+1. Run the Validator by executing the following command
 
 ```
 ./bin/validator full -d out ~/AEMProjectDirectory/dd-dispatcher/src
@@ -178,4 +178,4 @@ You should get following
 
 ![Terminal Output](validator-terminal.jpeg)
 
-Step 2. If you get error you should update dispatcher configurations and Re-run step 6.
+Step 2. If you get error you should update the dispatcher configurations and Re-run step 6.
