@@ -13,11 +13,11 @@ For this scenario, we will utilize:
 * Cloud Manager UI
 
 ```
-While Log Download is available through both the Cloud Manager UI and API, Log Tailing is API/CLI-only
+While the Log Download is available through both the Cloud Manager UI and API, Log Tailing is API/CLI-only
 ``` 
 ---
 
-##### 1. Access Log via Cloud Manager UI
+##### Step 1. Access the Logs via the Cloud Manager UI
 
 1. Navigate to Cloud Manager
 2. Go to the ` Environments ` Card
@@ -31,10 +31,10 @@ While Log Download is available through both the Cloud Manager UI and API, Log T
 
     > ![3.PNG](./images/3.PNG)
 
-##### 2. Access Logs via Cloud Manager plugin for the Adobe I/O CLI
+##### Step 2. Access the Logs via Cloud Manager plugin for the Adobe I/O CLI
 
 1. Launch the Command Prompt/Terminal 
-2. Navigate to Adobe IO CLI Plugin Installation Directory
+2. Navigate to the Adobe IO CLI Plugin Installation Directory (see Scenario 11 for installation)
 3. Execute the following commands:
     > Obtain Environment ID: ` aio cloudmanager:list-environments `
 
