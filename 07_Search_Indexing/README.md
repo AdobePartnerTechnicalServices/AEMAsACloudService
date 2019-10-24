@@ -15,22 +15,22 @@
   - [Lesson 4 - Remove Index Definition](#lesson-4---remove-index-definition)
   - [Additional Resources](#additional-resources)
 
-## Scenario Overview
-AEM support running queries against the repository, similar to running queries against a relational database. We also support fulltext queries. Customers can write their own queries and define their own indexes, and most of them do.
+## Scenario Overview/Lesson Context
+
+AEM supports running queries against the repository, very similar to running queries against a relational database. We also support fulltext queries. Customers can write their own queries and define their own indexes, and most of them do this.
 
 Changing index definitions is needed to speed up queries. With blue-green deployments,
 the challenge is that multiple application version can exist at the same time, but each
 version might require a different index configuration.
 
-With AEM Cloud, Instead of configuring and maintaining Indexes on single AEM instances, the Index configuration has to be specified before a deployment.
+With AEM as a Cloud Servivce, instead of configuring and maintaining indices on single AEM instances, the index configuration has to be specified before an actual deployment.
 
 
 ## Changes Compared to AEM 6.5
 
-* Users will not have access to the Index Manager (http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html) of a single AEM Instance anymore to debug, configure or maintain Indexing. It is only used for local development and on-prem deployments.
+* Users will not have access to the Index Manager (http://localhost:4502/libs/granite/operations/content/diagnosistools/indexManager.html) of a single AEM Instance anymore to debug, configure or maintain indexing. It is only used for local development and on-prem deployments.
 
-
-* Users will not change Indexes on a single AEM Instance anymore nor will he have to worry about consistency checks, reindexing etc.
+* Users will not change Indexes on a single AEM Instance anymore nor will they have to worry about consistency checks, reindexing etc.
 
 * In general, index changes are initiated before going to production to not circumvent quality gateways in Cloud Manager CI/CD pipelines and not impact Business KPI's in production.
 
@@ -42,7 +42,7 @@ With AEM Cloud, Instead of configuring and maintaining Indexes on single AEM ins
 
 * Index configuration is changed via deployments. Index definition changes are configured like other content changes.
 
-* At a high level, on Skyline, using the the blue-green deployment model, means there are two sets of indexes: one set for the old version (blue), and one set for the new version (green). At which version an index is used, is configured using flags in the index definitions ("useIfExist"). An index may be used in only one version of the application (e.g. only blue, or only green), or in both versions. 
+* At a high level, on AEM as a Cloud Service, using the the blue-green deployment model, means there are two sets of indexes: one set for the old version (blue), and one set for the new version (green). At which version an index is used, is configured using flags in the index definitions ("useIfExist"). An index may be used in only one version of the application (e.g. only blue, or only green), or in both versions. 
   
 * Customers can see whether the indexing job is complete on the Cloud Manager build page and will receive a notification when the new version is ready to take traffic. Note that there is no progress bar to show how much time remains for the indexing job. There is no plan currently to provide a UI in the cloud manager to view or edit index definitions.
 
@@ -56,7 +56,7 @@ With AEM Cloud, Instead of configuring and maintaining Indexes on single AEM ins
 * AEM Cloud Instance
 * AEM Project
 
-## Lesson 1 - Prepare New Index Definition
+### Step 1. Prepare New Index Defintion
 
 ### Lesson Context
 Customer needs to prepare a new index definition package that contains:
@@ -85,12 +85,15 @@ Note: The read-write areas of the repository are shared between all versions of 
 
 
 
-## Lesson 2 - Add Index Definition []
+### Step 2. Add Index Definition
+
  
 ### Lesson Context
 Once the deployment is up and running, we start two jobs, responsible for adding the indexes to MongoDB and Azure Segment Store (for author and publish, respectively):
-## Lesson 3 - Change Index Definition
-## Lesson 4 - Remove Index Definition
+
+### Step 3. Change Index Definition
+### Step 4. Remove Index Definition
+
 
 
 
