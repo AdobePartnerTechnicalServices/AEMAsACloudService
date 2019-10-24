@@ -1,6 +1,6 @@
-# AEM Cloud (Skyline) -  Livetrials Scenarios
+# AEM as a Cloud Service () -   Scenarios
 
-Following are the draft scenarios for AEM Cloud (Skyline) Livetrials :
+Following are the draft scenarios for AEM as a Cloud Launch Events :
 
 1. [Deploy Your First Project to AEM Cloud](./1_Deploy_Custom_Project/README.md )
 2. [Merge Two Projects & Deploy](./2_Project_Merge/README.md)
