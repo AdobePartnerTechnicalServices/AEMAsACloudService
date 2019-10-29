@@ -26,6 +26,7 @@ In this scenario, we will create a Livecopy and explore the Blueprint and Rollou
 7. Leave ` Exlude sub pages ` unchecked
 8. Set ` Rollout Configs ` to ` Standard rollout config ` 
 9. Click ` Create `
+
      > ![1.gif](./images/1.gif)
 
 ---
