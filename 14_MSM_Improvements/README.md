@@ -3,7 +3,7 @@
 
 ### Scenario Roadmap
 
-Out-of-the-box(AEM 6.5 GA), MSM only allowed 1:1 pull rollouts, i.e. "synchronize" button/option in AEM Live Copy UI. It wasn't possible to initiate rollouts on the live copy source.
+In AEM 6.5, out of the box, the multi site manager only allowed 1:1 pull rollouts, i.e. the "synchronize" button/option in AEM Live Copy UI. It wasn't possible to initiate rollouts on the live copy source.
 
 In order to allow 1:many push-rollouts, turning a live copy source into a "blueprint" (for many live copies), a "Blueprint Configuration" had to be created (AEM Start/Tools/Sites/Blueprints).
 
@@ -13,7 +13,7 @@ In AEM as a Cloud Service, any live copy source is now a "blueprint", meaning ro
 
 #### Lesson Context
 
-In this scenario, we will create a Livecopy and explore the Blueprint and Rollout Mechnasim.
+In this scenario, we will create a Livecopy and explore the Blueprint and the Rollout Mechanism.
 
 ##### Step 1: Create a Live Copy
 
