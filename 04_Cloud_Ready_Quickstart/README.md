@@ -1,4 +1,4 @@
-# Working with Cloud Ready Quickstart
+# Working with the Cloud Ready Quickstart JAR
 
 ## Table of Contents
 * [Senario Overview](#scenario-overview)
