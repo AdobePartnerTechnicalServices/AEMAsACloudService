@@ -35,7 +35,7 @@ In this lesson we will learn how to download and setup the local AEM Environment
 5.  Run the following command to unpack and start your local cloud ready development environment
    ```
    $> java -jar cq-quickstart-cloudready-V16061.jar -unpack
-   $> cd cq-quickstart/bin
+   $> cd crx-quickstart/bin
    $> ./start
    $> tail -f ../logs/error.log
 
