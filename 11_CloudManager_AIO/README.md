@@ -71,7 +71,7 @@ In order to setup the Cloud Manager plugin for the Adobe I/O CLI, we will follow
 
     > e.g. ` aio config:set jwt-auth.jwt_private_key ./private.key --file `
 
-4. Set default Program ID:
+4. Set the default Program ID:
 
     > aio config:set cloudmanager_programid PROGRAMID
 
