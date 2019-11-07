@@ -1,8 +1,10 @@
 
+### Convert the Dispatcher Configuration from AMS
+
+
 ### Lesson Context
 
-This file provides step by step instructions on how to convert an AMS dispatcher configuration to an AEM as a Cloud Service configuration. It assumes
-that you have an archive with a structure similar to the one described in [Cloud Manager dispatcher configuration](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/getting-started/dispatcher-configurations.html)
+This file provides step by step instructions on how to convert an AMS dispatcher configuration to an AEM as a Cloud Service configuration. It assumes that you have an archive with a structure similar to the one described in [Cloud Manager dispatcher configuration](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/getting-started/dispatcher-configurations.html)
 
 
 ### Step 1. Extract the archive and remove an eventual prefix
