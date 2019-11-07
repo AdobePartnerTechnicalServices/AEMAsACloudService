@@ -1,4 +1,4 @@
-# Using Dispatcher Configuration Validator
+# Using the Dispatcher Configuration Validator
 
 ## Table of Contents
 
