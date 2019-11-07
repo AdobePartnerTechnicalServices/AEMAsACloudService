@@ -5,7 +5,7 @@
 
 Versioning pages before deletion allows restoring them after deletion. Page versioning can however have a significant performance impact on deletion. Deleting a single page can take up to 0.5-5 seconds as a result.
 
-Page versioning before deletion is now optional. Default is "yes", to ensure consistency with previous behavior.
+Page versioning before deletion is now optional. The default behavior is "yes", to ensure consistency with previous behavior.
 
 #### Lesson Context
 
