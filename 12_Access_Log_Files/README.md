@@ -9,8 +9,8 @@ In this scenario, we will use Cloud Manager and the Cloud Manager plugin for the
 
 For this scenario, we will utilize:
 
-* Adobe I/O CLI
-* Cloud Manager UI
+* The Adobe I/O CLI tool
+* The Cloud Manager UI
 
 ```
 While the Log Download is available through both the Cloud Manager UI and API, Log Tailing is API/CLI-only
