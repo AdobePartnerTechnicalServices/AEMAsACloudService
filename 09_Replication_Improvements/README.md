@@ -1,3 +1,4 @@
+### Using Content Distribution instead of Replication
 
 
 ### Scenario Roadmap/Lesson Context
