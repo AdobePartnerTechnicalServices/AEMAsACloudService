@@ -8,7 +8,7 @@ Adobe Experience Manager, the Maintenance card will not be accessible and so con
 
 At this point, Maintenance Tasks, can be divided into two main categories: 
 
-1. Adobe Managed Maintenance Tasks i.e. Adobe fully manages MTs that don't require any customer decisioning. For example, Datastore Garbage Collection, Lucene Binaries Cleanup, Revision Cleanup
+1. Adobe Managed Maintenance Tasks i.e. Adobe fully manages MTs that don't require any customer decisioning. For example, Datastore Garbage Collection, Lucene Binaries Cleanup, Revision Cleanup.
 
 2. Shared Maintenance Tasks i.e. Maintenance Tasks configurations that can be shared between Adobe and the customer. The customer owns a subset of properties (e.g. number of versions) and the maintenance window is owned by Adobe. For example, version purge, project purge, workflow purge.
 
