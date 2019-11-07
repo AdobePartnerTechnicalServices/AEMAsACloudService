@@ -1,4 +1,4 @@
-# AEM As A Cloud Service Livetrials 
+
 ## Merge Projects
 
 #### Description
