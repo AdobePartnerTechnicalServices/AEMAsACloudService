@@ -98,7 +98,7 @@ In this lesson, you will run a simple web application which illustrates the type
 
 ### Lesson Context
 
-We now need to populate the first handful of lines in ` .env ` file. To do this, we will register an Integration in the Adobe I/O Console. Before doing that, we need to 
+We now need to populate the first handful of lines in the ` .env ` file. To do this, we will register an Integration in the Adobe I/O Console. Before doing that, we need to 
 
 1. Run the following command in the Terminal Window or Command Prompt: 
     >   ` openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out certificate.crt `
