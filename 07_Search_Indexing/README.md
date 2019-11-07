@@ -42,7 +42,7 @@ With AEM as a Cloud Servivce, instead of configuring and maintaining indices on 
 
 * Index configuration is changed via deployments. Index definition changes are configured like other content changes.
 
-* At a high level, on AEM as a Cloud Service, using the the blue-green deployment model, means there are two sets of indexes: one set for the old version (blue), and one set for the new version (green). At which version an index is used, is configured using flags in the index definitions ("useIfExist"). An index may be used in only one version of the application (e.g. only blue, or only green), or in both versions. 
+* At a high level, on AEM as a Cloud Service, using the the blue-green deployment model, means there are two sets of indexes: one set for the old version (blue), and one set for the new version (green). At which version an index is used, it is configured using flags in the index definitions ("useIfExist"). An index may be used in only one version of the application (e.g. only blue, or only green), or in both versions. 
   
 * Customers can see whether the indexing job is complete on the Cloud Manager build page and will receive a notification when the new version is ready to take traffic. Note that there is no progress bar to show how much time remains for the indexing job. There is no plan currently to provide a UI in the cloud manager to view or edit index definitions.
 
