@@ -8,7 +8,7 @@
 ## Scenario Overview
 AEM Cloud as a Cloud Service will be upgrading very frequently with daily patches,feature releases and more. Developers should get in the habit of downloading the quickstart JAR file daily to be sure that the local environment is in sync with the cloud environment. Adobe will release new JAR files on a daily basis. 
 
-The quictstart jar version is subject to change very frequently . There is a corresponding global-apis jar which must be used as a dependency in the AEM Project pom files for compile time,  and will deploy the built artifact into the local quickstart based AEM instance for testing. Remember, there is no substitute for pushing the code to the GIT connected with Cloud Manager which will deploy the code to AEM as a Cloud Service. 
+The quictstart jar version is subject to change very frequently. There is a corresponding global-apis jar which must be used as a dependency in the AEM Project pom files for compile time,  and will deploy the built artifact into the local quickstart based AEM instance for testing. Remember, there is no substitute for pushing the code to the GIT connected with Cloud Manager which will deploy the code to AEM as a Cloud Service. 
 
 ### Key Takeaways
 
