@@ -10,8 +10,8 @@ Cloud Manager is in charge of all orchestrations and deployments to the instance
 ![Cloud Manager ](./assets/cloudmanager.png)
 
 #### Pre-requisites
-* Provisioned AEM Cloud Program 
-* Access to Cloud Manager Git Repository
+* A provisioned AEM Cloud Program 
+* Access to the Cloud Manager Git Repository
 
 #### Pre-requisites Create a Project
 1. Create a new project using the latest Archetype or have an existing project
