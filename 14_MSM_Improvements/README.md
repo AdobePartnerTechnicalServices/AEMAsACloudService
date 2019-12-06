@@ -3,8 +3,8 @@
 
 ### Scenario Roadmap
 
-In Adobe Experience Manager 6.5, out of the box, the Multi Site Manager only allowed 1:1 pull rollouts (For example, the **synchronize** button/option in AEM Live Copy UI). It was not possible to initiate rollouts on the live copy source.
-
+In Adobe Experience Manager 6.5, out of the box, the Multi Site Manager only allowed 1:1 pull rollouts (for example, the **synchronize** button/option in AEM Live Copy UI). It was not possible to initiate rollouts on the live copy source.
+Mult
 In order to allow one-to-many push-rollouts, turning a live copy source into a "blueprint" (for many live copies), a "Blueprint Configuration" had to be created (AEM Start/Tools/Sites/Blueprints).
 
 With AEM as a Cloud Service, this would have not been possible as Blueprint Configurations at author runtime are stored under /libs/msm.
