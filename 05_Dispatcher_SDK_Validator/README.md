@@ -55,8 +55,10 @@ Password: < Paste Token >
 ```
 ### Step 2. Setup the Dispatcher SDK Validator
 
-1. Copy DispacthcerSDKv1.0.2sh to a folder. You may download Dispatcher configuration from [Dispatcher SDK Internal Repository](https://artifactory.corp.adobe.com/artifactory/maven-aem-release-local/com/adobe/skyline/dispatcher/dispatcher-sdk/)
-2. Open Terminal in the folder and add executable permission to .sh file
+
+1.  Download Dispatcher configuration from [Dispatcher SDK Internal Repository](https://artifactory.corp.adobe.com/artifactory/maven-aem-release-local/com/adobe/skyline/dispatcher/dispatcher-sdk/)
+3. Copy DispacthcerSDKv1.0.2sh or relevant zip file to a local folder. 
+2. (For Mac ) Open Terminal in the folder and add executable permission to .sh file
 ```
 chmod +x DispacthcerSDKv1.0.2sh
 ```
