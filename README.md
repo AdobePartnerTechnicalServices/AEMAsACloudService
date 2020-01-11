@@ -1,6 +1,6 @@
-# AEM as a Cloud Service () - Scenarios
+# AEM as a Cloud Service - Scenarios
 
-The following are the draft scenarios for AEM as a Cloud Service Launch Events :
+These Use Scenearios are provided by Adobe Demo team, PTS customized a little bit to fit with sandbox environments. 
 
 1. [Deploy Your First Project to AEM as a Cloud Service](./01_Deploy_Custom_Project/README.md )
 2. [Merge Two Projects & Deploy](./02_Project_Merge/README.md)
